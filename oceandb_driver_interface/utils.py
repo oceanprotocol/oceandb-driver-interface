@@ -17,7 +17,7 @@ def parse_args():
         pass
 
 
-def parse_config(file_path='../config/oceandb.ini'):
+def parse_config(file_path):
     """Loads the configuration file given as parameter"""
     config_parser = configparser.ConfigParser()
     config_parser.read(file_path)
@@ -34,7 +34,7 @@ def parse_config(file_path='../config/oceandb.ini'):
     return plugin_config
 
 
-def start_plugin():
+def start_plugin(file_path):
     """This function initialize the Ocean plugin"""
     try:
         args = parse_args()
@@ -42,9 +42,9 @@ def start_plugin():
             if args.config is not None:
                 config = parse_config(args.config)
             else:
-                config = parse_config()
+                config = parse_config(file_path)
         else:
-            config = parse_config()
+            config = parse_config(file_path)
     except:
         raise ConfigError("You should provide a valid config.")
     plugin_instance = load_plugin(config)

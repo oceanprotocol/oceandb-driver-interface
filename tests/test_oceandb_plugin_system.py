@@ -22,6 +22,3 @@ def test_oceandb_expcects_subclassed_plugin():
     plugin = NonSubclassPlugin()
     with raises(TypeError):
         AbstractPlugin(plugin)
-
-
-

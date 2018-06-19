@@ -15,6 +15,5 @@ class OceanDb:
     Attributes:
         plugin (Plugin): Bound persistence layer plugin.
     """
-    def __init__(self, conf=None):
-        self.conf = conf
-        self.plugin = start_plugin()
+    def __init__(self, file_path='../config/oceandb.ini'):
+        self.plugin = start_plugin(file_path)
