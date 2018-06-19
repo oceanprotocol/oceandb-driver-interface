@@ -1,6 +1,8 @@
 import configparser
 import argparse
+import sys
 import importlib.util
+import importlib.machinery
 from oceandb_driver_interface.constants import CONFIG_OPTION
 from oceandb_driver_interface.exceptions import ConfigError
 
@@ -60,10 +62,16 @@ def load_plugin(config):
             module_path = "../plugins/%s/plugin.py" % module
     except:
         raise ConfigError("You should provide a valid config.")
-    spec = importlib.util.spec_from_file_location("plugin.py", module_path)
-    foo = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(foo)
-    return foo.Plugin
+    if sys.version_info < (3,5):
+        from importlib.machinery import SourceFileLoader
+
+        foo = SourceFileLoader("plugin.py", module_path).load_module()
+        return foo.Plugin
+    else:
+        spec = importlib.util.spec_from_file_location("plugin.py", module_path)
+        foo = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(foo)
+        return foo.Plugin
 
 
 def print_help():

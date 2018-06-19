@@ -4,7 +4,7 @@
 """Tests for `oceandb_driver_interface` package."""
 
 from pytest import mark, raises
-
+from oceandb_driver_interface.oceandb import OceanDb
 
 
 def test_oceandb_expects_plugin():

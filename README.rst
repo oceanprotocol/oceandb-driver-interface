@@ -20,8 +20,7 @@ oceandb-driver-interface
 
 
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
-
+High-level, plugin-bound Ocean DB functions. You should implement a plugin class extending this module to connect with Ocean DB.
 
 * Free software: Apache Software License 2.0
 * Documentation: https://oceandb-plugin-system.readthedocs.io.
@@ -30,43 +29,14 @@ Python Boilerplate contains all the boilerplate you need to create a Python pack
 How to use it
 -------------
 
-First of all we have to specify where is allocated our config.
-To do that we have to pass the following argument:
-
-.. code-block:: python
-
-    --config=/path/of/my/config
-..
-
-If you do not provide a configuration path, by default the config is expected in the config folder.
-
-In the configuration we are going to specify the following parameters to
-
-.. code-block:: python
-
-    [oceandb]
-
-    enabled=true
-    #location of plugin class
-    module=mongo
-    module.path=plugins/
-    #plugin connection
-    db.hostname=localhost
-    db.port=27017
-    db.username=
-    db.password=
-    db.name=test
-    db.collection=protokeeper
-..
-
-Once you have defined this the only thing that you have to do it is use it:
-
-.. code-block:: python
-
-    oceandb = OceanDb(conf)
-    oceandb.write({"id": 1, "value": "test"})
-
-..
+Abstract interface for all persistence layer plugins.
+Expects the following to be defined by the subclass:
+        - :attr: type (as a read-only property)
+        - :func: write
+        - :func: read
+        - :func: update
+        - :func: delete
+        - :func: list
 
 How to develop a plugin
 -----------------------
@@ -76,15 +46,3 @@ To create a plugin you have to create a class called Plugin extending AbstractPl
 You could find an example in plugins/mongo
 
 
-Features
---------
-
-* TODO
-
-Credits
--------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
