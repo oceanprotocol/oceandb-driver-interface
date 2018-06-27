@@ -1,6 +1,7 @@
 import configparser
 import argparse
 import sys
+import os
 import importlib.util
 import importlib.machinery
 from oceandb_driver_interface.constants import CONFIG_OPTION
@@ -59,10 +60,11 @@ def load_plugin(config):
         if 'module.path' in config:
             module_path = config['module.path']
         else:
-            module_path = "../plugins/%s/plugin.py" % module
+            module_path = "%s/lib/python3.%s/site-packages/oceandb_%s_driver/plugin.py" % (
+                os.getenv('VIRTUAL_ENV'), sys.version_info[1], module)
     except:
         raise ConfigError("You should provide a valid config.")
-    if sys.version_info < (3,5):
+    if sys.version_info < (3, 5):
         from importlib.machinery import SourceFileLoader
 
         foo = SourceFileLoader("plugin.py", module_path).load_module()
