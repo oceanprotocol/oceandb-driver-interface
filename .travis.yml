@@ -24,5 +24,6 @@ deploy:
     secure: "PN9LH0xYCFz1Ss02MLQANHnFfRn+mwvxG0IBlYFNJPsqMJ2VVX675K2aHs9dFNuJ5m0Fmhg499rRH49DRLM1naVDzR/nLoGSyJkc40G46fR7SFGXr3Angs9Z2r4mYMyl2XxEVxWuTZE5c88NQbdx9KV5RPAuR78WOyIfZGMue74gkKP/pypk9vnlIgqnojZAR3/3d+6aTcbRwnvS21YdX2zpec/Efe2GieMk1BK6fZC5ODSDBTIsx0VY79GcO9tQokr1AHbw7m9pdMpTSLDSoca2/NBU/y2s2pfKNkC7ewFjYHb+Pr9xR7VHUMGlbZxhg8eqZw6pbFVQutF4Y3674AIPU2TNKt1MSsG2PaBlA9WhquctaNQgelDfM9s8bZpZKbH9yGtXP1oO/QU8VkNcRnB5LD+ojsuC3Mfi1K+W6C0j+b6jf0leadY+RRj2I+wvQpG7Ad8Qwli7D6VJmaqEH5tsf+vRLARsyqmGLkTJX5LOibgJj18mrsk3z1APvU8lmushhwosUEYfsvkT+3BxPA3rmBkNpK17Mz5rPfsEUfwctoyXDvbZev/etYCKr4Y2sxTFbGh/tGIw6gceTZBKpKwoSqZoAg4TcP/lJ8sHuGjOYLfV2YC1bmjMnfd0PTVlxunoAfR5JxilOmxOJ0BoKFkgmLRvVRn34Vw4dKhmfbQ="
   on:
     tags: true
-    repo: oceanprotocol/oceandb_driver_interface
+    branch: master
+    repo: oceanprotocol/oceandb-driver-interface
     python: 3.6
