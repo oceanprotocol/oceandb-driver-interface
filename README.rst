@@ -28,9 +28,6 @@ oceandb-driver-interface
         :alt: Documentation Status
 
 
-
-
-
 High-level, plugin-bound Ocean DB functions. You should implement a plugin class extending this module to connect with Ocean DB.
 
 * Free software: Apache Software License 2.0
@@ -42,12 +39,52 @@ How to use it
 
 Abstract interface for all persistence layer plugins.
 Expects the following to be defined by the subclass:
-    - :attr: type (as a read-only property)
-    - :func: write
-    - :func: read
-    - :func: update
-    - :func: delete
-    - :func: list
+* type (as a read-only property)
+* write
+* read
+* update
+* delete
+* list
+
+Once you have your plugin, the way to use it is the following:
+
+
+You have to provide a configuration with the following information:
+
+.. code-block:: python
+
+    [oceandb]
+
+    enabled=true            # In order to enable or not the plugin
+    module=bigchaindb       # You can use one the plugins already created. Currently we have mongodb and bigchaindb.
+    module.path=            # You can specify the location of your custom plugin.
+    db.hostname=localhost   # Address of your persistence.
+    db.port=9985            # Port of yout persistence database.
+
+    # If you choose bigchaindb you have to provide this:
+    secret=                 # A secret that serves as a seed.
+    db.namespace=namespace  # Namespace that you are going to use in bigchaindb
+    db.app_id=              # App id of your bigchaindb application.
+    db.app_key=             # App key of your bigchaindb application.
+
+    # If you choose mongodb you have to provide this:
+    db.username=travis      # If you are using authentication, mongodb username.
+    db.password=test        # If you are using authentication, mongodb password.
+    db.name=test            # Mongodb database name
+    db.collection=col       # Mongodb collection name
+
+
+..
+
+
+Plugins availables
+------------------
+
+At the moment we have developed two plugins:
+
+* Bigchaindb (https://github.com/oceanprotocol/oceandb-bigchaindb-driver)
+* Mongodb (https://github.com/oceanprotocol/oceandb-mongodb-driver)
+
 
 How to develop a plugin
 -----------------------

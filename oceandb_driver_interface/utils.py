@@ -67,13 +67,13 @@ def load_plugin(config):
     if sys.version_info < (3, 5):
         from importlib.machinery import SourceFileLoader
 
-        foo = SourceFileLoader("plugin.py", module_path).load_module()
-        return foo.Plugin
+        mod = SourceFileLoader("plugin.py", module_path).load_module()
+        return mod.Plugin
     else:
         spec = importlib.util.spec_from_file_location("plugin.py", module_path)
-        foo = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(foo)
-        return foo.Plugin
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod.Plugin
 
 
 def print_help():
