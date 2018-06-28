@@ -10,6 +10,7 @@ class AbstractPlugin(ABC):
         - :func:`update`
         - :func:`delete`
         - :func:`list`
+        - :func:`query`
     """
 
     @abstractmethod
@@ -35,9 +36,6 @@ class AbstractPlugin(ABC):
              id: Id of the created registry on the persistence layer
          Returns:
              str: Value of the registry read.
-         Raises:
-             :exc:`~..OceanDbError`: If the registry failed to be
-                 created
         """
 
     @abstractmethod
@@ -60,9 +58,6 @@ class AbstractPlugin(ABC):
              id: Id of the created registry on the persistence layer
          Returns:
              str: Value of the id deleted.
-         Raises:
-             :exc:`~..OceanDbError`: If the registry failed to be
-                 created
         """
 
     @abstractmethod
@@ -74,5 +69,13 @@ class AbstractPlugin(ABC):
              limit : Number of registries that will be show
          Returns:
              dict: List of registries
+        """
 
+    @abstractmethod
+    def query(self, query_string):
+        """Query the elements saved in OceanDB
+        Args:
+            query_string: Query to OceanDB in a string format.
+        Returns:
+             dict: List of registries
         """
