@@ -39,12 +39,13 @@ How to use it
 
 Abstract interface for all persistence layer plugins.
 Expects the following to be defined by the subclass:
-* type (as a read-only property)
-* write
-* read
-* update
-* delete
-* list
+
+* type - A string denoting the type of plugin (e.g. BigchainDB).
+* write - Write an object in OceanDB
+* read - Read the registry for a provided id
+* update - Update an object in OceanDB
+* delete - Delete the registry for a provided id
+* list - List the elements saved in OceanDB
 
 Once you have your plugin, the way to use it is the following:
 
