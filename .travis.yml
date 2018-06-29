@@ -1,5 +1,3 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
 python:
   - 3.6
@@ -8,20 +6,13 @@ python:
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox-travis
-
-# Command to run tests, e.g. python setup.py test
 script: tox
-
-# Assuming you have installed the travis-ci CLI tool, after you
-# create the Github repo and add it to Travis, run the
-# following command to finish PyPI deployment setup:
-# $ travis encrypt --add deploy.password
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: leucothia
   password:
-    secure: PN9LH0xYCFz1Ss02MLQANHnFfRn+mwvxG0IBlYFNJPsqMJ2VVX675K2aHs9dFNuJ5m0Fmhg499rRH49DRLM1naVDzR/nLoGSyJkc40G46fR7SFGXr3Angs9Z2r4mYMyl2XxEVxWuTZE5c88NQbdx9KV5RPAuR78WOyIfZGMue74gkKP/pypk9vnlIgqnojZAR3/3d+6aTcbRwnvS21YdX2zpec/Efe2GieMk1BK6fZC5ODSDBTIsx0VY79GcO9tQokr1AHbw7m9pdMpTSLDSoca2/NBU/y2s2pfKNkC7ewFjYHb+Pr9xR7VHUMGlbZxhg8eqZw6pbFVQutF4Y3674AIPU2TNKt1MSsG2PaBlA9WhquctaNQgelDfM9s8bZpZKbH9yGtXP1oO/QU8VkNcRnB5LD+ojsuC3Mfi1K+W6C0j+b6jf0leadY+RRj2I+wvQpG7Ad8Qwli7D6VJmaqEH5tsf+vRLARsyqmGLkTJX5LOibgJj18mrsk3z1APvU8lmushhwosUEYfsvkT+3BxPA3rmBkNpK17Mz5rPfsEUfwctoyXDvbZev/etYCKr4Y2sxTFbGh/tGIw6gceTZBKpKwoSqZoAg4TcP/lJ8sHuGjOYLfV2YC1bmjMnfd0PTVlxunoAfR5JxilOmxOJ0BoKFkgmLRvVRn34Vw4dKhmfbQ=
+    secure: MDUczIclbl7HyiT9gw+laY02BA8q+taRoyAz4jf6QYyMXu5cTUEuq92Y8d4wfPFU8wuh/Z/fYl2debmsSk+Ln98cUWP0TrNm0E2B0jQLmUNd/GCc9uXjNogiR/i6EoFHmfQnPkMWlg5z7GGghgQ0o6hbi/i7GJ40iJjOVlil0pTDhlxHFU2Wa8JD8lz9PZc8/Vn3Jz4FuofVuBbM6FVM1byLfWthM5/qvfsUM+zzQFCWMuc40US6NXnO8TGIXCfNpvM01r2clp8mP4zZw7MMqb85zSLo5ltG+7G8mYf8pWvxldLQO29mnH4Qrei2JQm7oZ2F7v9usxFX+4s9lAcp6vg1oRWuv1NKEeFpeeISrP4Da3IOcPhVh2tC/g+XLGbSKWwuJU4S5HOkoi8FHvCPobtDzoAbRnjnE2O3aatEOckbBiM4coeoI5ORwMwBX6nmAbQJ17eD66W+Gbepbp98lIiv/3um+RZrX3dRhzfkk04TTmhNWJCqbccOHkyASVMO0bMhDT3n5ZYjfOxkINWCr22xw0wLrV/YbiX88iKIZhyqaET1ZB9sEfhyb34lFO5aSFfQscY0XOrgC2sAR4MxiaCzkXjEqdgHaX5YmKVk0wq58ECJBEMPJ7lLP00cpSI/0B+ImqcoutevU1qcqrez+DggpDIndhetbFPfAeYpeTQ=
   on:
     tags: true
     branch: master
