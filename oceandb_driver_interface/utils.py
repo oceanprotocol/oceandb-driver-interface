@@ -32,8 +32,9 @@ def parse_config(file_path):
             plugin_config[option] = config_parser.get(CONFIG_OPTION, option)
             if plugin_config[option] == -1:
                 print("skip: %s" % option)
-        except Exception:
+        except Exception as e:
             print("exception on %s!" % option)
+            print(e.message)
             plugin_config[option] = None
     return plugin_config
 
