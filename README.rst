@@ -20,7 +20,7 @@ oceandb-driver-interface
 .. image:: https://img.shields.io/pypi/v/oceandb-driver-interface.svg
         :target: https://pypi.python.org/pypi/oceandb-driver-interface
 
-.. image:: https://img.shields.io/travis/oceanprotocol/oceandb-driver-interface.svg
+.. image:: https://travis-ci.com/oceanprotocol/oceandb-driver-interface.svg?token=pA8zcB6SCxKW5MHpqs6L&branch=master
         :target: https://travis-ci.com/oceanprotocol/oceandb-driver-interface
 
 .. image:: https://readthedocs.org/projects/oceandb-driver-interface/badge/?version=latest
