@@ -23,9 +23,6 @@ oceandb-driver-interface
 .. image:: https://travis-ci.com/oceanprotocol/oceandb-driver-interface.svg?token=pA8zcB6SCxKW5MHpqs6L&branch=master
         :target: https://travis-ci.com/oceanprotocol/oceandb-driver-interface
 
-.. image:: https://readthedocs.org/projects/oceandb-driver-interface/badge/?version=latest
-        :target: https://oceandb-driver-interface.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
 
 
 High-level, plugin-bound Ocean DB functions. You should implement a plugin class extending this module to connect with Ocean DB.
