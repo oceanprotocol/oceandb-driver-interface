@@ -64,7 +64,7 @@ def load_plugin(config):
                 os.getenv('VIRTUAL_ENV'), sys.version_info[1], module)
         else:
             module_path = "%s/oceandb_%s_driver/plugin.py" % (
-                site.getsitepackages(), module)
+                site.getsitepackages()[0], module)
     except Exception:
         raise ConfigError("You should provide a valid config.")
     if sys.version_info < (3, 5):
