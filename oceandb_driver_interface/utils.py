@@ -32,8 +32,9 @@ def parse_config(file_path):
             plugin_config[option] = config_parser.get(CONFIG_OPTION, option)
             if plugin_config[option] == -1:
                 print("skip: %s" % option)
-        except:
+        except Exception as e:
             print("exception on %s!" % option)
+            print(e.message)
             plugin_config[option] = None
     return plugin_config
 
@@ -42,14 +43,12 @@ def start_plugin(file_path):
     """This function initialize the Ocean plugin"""
     try:
         args = parse_args()
-        if args is not None:
-            if args.config is not None:
-                config = parse_config(args.config)
-            else:
-                config = parse_config(file_path)
-        else:
-            config = parse_config(file_path)
-    except:
+        if (args is None or args.config is None) and not file_path:
+            raise Exception('Configuration file is required to load the BigchainDB plugin')
+        if not file_path:
+            file_path = args.config
+        config = parse_config(file_path)
+    except Exception:
         raise ConfigError("You should provide a valid config.")
     plugin_instance = load_plugin(config)
     return plugin_instance(config)
@@ -66,7 +65,7 @@ def load_plugin(config):
         else:
             module_path = "%s/oceandb_%s_driver/plugin.py" % (
                 site.getsitepackages(), module)
-    except:
+    except Exception:
         raise ConfigError("You should provide a valid config.")
     if sys.version_info < (3, 5):
         from importlib.machinery import SourceFileLoader
