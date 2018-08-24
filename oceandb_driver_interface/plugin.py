@@ -39,7 +39,7 @@ class AbstractPlugin(ABC):
         """
 
     @abstractmethod
-    def update(self, id, obj):
+    def update(self, obj, id):
         """Update an object in OceanDB
          Args:
              id: Id of the created registry on the persistence layer

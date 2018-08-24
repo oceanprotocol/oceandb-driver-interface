@@ -1,38 +1,35 @@
-|banner|
+[![banner](docs/imgs/repo-banner@2x.png)](https://oceanprotocol.com)
 
-.. raw:: html
+# oceandb-driver-interface
 
-   <h1 align="center">
+> 🐳 Ocean DB driver interface(Python).
+> [oceanprotocol.com](https://oceanprotocol.com)
 
-oceandb-driver-interface
+[![Travis (.com)](https://img.shields.io/travis/com/oceanprotocol/oceandb-driver-interface.svg)](https://travis-ci.com/oceanprotocol/oceandb-driver-interface)
+[![PyPI](https://img.shields.io/pypi/v/oceandb-driver-interface.svg)](https://pypi.org/project/oceandb-driver-interface/)
+[![GitHub contributors](https://img.shields.io/github/contributors/oceanprotocol/oceandb-driver-interface.svg)](https://github.com/oceanprotocol/oceandb-driver-interface/graphs/contributors)
 
-.. raw:: html
+---
 
-   </h1>
+## Table of Contents
 
-..
+  - [Features](#features)
+  - [Quick-start](#quick-start)
+  - [Plugins availables](#plugins-availables)
+  - [How to develop a plugin](#how-to-develop-a-plugin)
+  - [Code style](#code-style)
+  - [Testing](#testing)
+  - [License](#license)
 
-    🐳 Ocean DB driver interface(Python).
+---
 
-.. |banner| image:: docs/imgs/repo-banner@2x.png
-   :target: https://oceanprotocol.com
-
-.. image:: https://img.shields.io/pypi/v/oceandb-driver-interface.svg
-        :target: https://pypi.python.org/pypi/oceandb-driver-interface
-
-.. image:: https://travis-ci.com/oceanprotocol/oceandb-driver-interface.svg?token=pA8zcB6SCxKW5MHpqs6L&branch=master
-        :target: https://travis-ci.com/oceanprotocol/oceandb-driver-interface
-
-
+## Features
 
 High-level, plugin-bound Ocean DB functions. You should implement a plugin class extending this module to connect with Ocean DB.
 
-* Free software: Apache Software License 2.0
-* Documentation: https://oceandb-plugin-system.readthedocs.io.
 
+## Quick-start
 
-How to use it
--------------
 
 Abstract interface for all persistence layer plugins.
 Expects the following to be defined by the subclass:
@@ -49,8 +46,7 @@ Once you have your plugin, the way to use it is the following:
 
 You have to provide a configuration with the following information:
 
-.. code-block:: python
-
+```yaml
     [oceandb]
 
     enabled=true            # In order to enable or not the plugin
@@ -70,13 +66,10 @@ You have to provide a configuration with the following information:
     db.password=test        # If you are using authentication, mongodb password.
     db.name=test            # Mongodb database name
     db.collection=col       # Mongodb collection name
+```
 
 
-..
-
-
-Plugins availables
-------------------
+## Plugins availables
 
 At the moment we have developed two plugins:
 
@@ -84,11 +77,37 @@ At the moment we have developed two plugins:
 * Mongodb (https://github.com/oceanprotocol/oceandb-mongodb-driver)
 
 
-How to develop a plugin
------------------------
+## How to develop a plugin
 
 To create a plugin you have to create a class called Plugin extending AbstractPlugin.
 
 You could find an example in https://github.com/oceanprotocol/oceandb-bigchaindb-driver
 
 
+## Code style
+
+The information about code style in python is documented in this two links [python-developer-guide](https://github.com/oceanprotocol/dev-ocean/blob/master/doc/development/python-developer-guide.md)
+and [python-style-guide](https://github.com/oceanprotocol/dev-ocean/blob/master/doc/development/python-style-guide.md).
+    
+## Testing
+
+Automatic tests are setup via Travis, executing `tox`.
+Our test use pytest framework.
+
+
+## License
+
+```
+Copyright 2018 Ocean Protocol Foundation Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

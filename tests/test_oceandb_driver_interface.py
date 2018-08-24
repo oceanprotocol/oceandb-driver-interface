@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""Tests for `oceandb_driver_interface` package."""
-
-from pytest import mark, raises
+from pytest import raises
 from oceandb_driver_interface.utils import parse_config
 
 
