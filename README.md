@@ -1,4 +1,4 @@
-[![banner](docs/imgs/repo-banner@2x.png)](https://oceanprotocol.com)
+[![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://oceanprotocol.com)
 
 # oceandb-driver-interface
 
@@ -19,6 +19,7 @@
   - [How to develop a plugin](#how-to-develop-a-plugin)
   - [Code style](#code-style)
   - [Testing](#testing)
+  - [New Version](#new-version)
   - [License](#license)
 
 ---
@@ -94,6 +95,9 @@ and [python-style-guide](https://github.com/oceanprotocol/dev-ocean/blob/master/
 Automatic tests are setup via Travis, executing `tox`.
 Our test use pytest framework.
 
+## New Version
+
+The `bumpversion.sh` script helps to bump the project version. You can execute the script using as first argument {major|minor|patch} to bump accordingly the version.
 
 ## License
 
