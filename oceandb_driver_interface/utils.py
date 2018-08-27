@@ -17,8 +17,8 @@ def parse_args():
     try:
         args = parser.parse_args()
         return args
-    except:
-        pass
+    except Exception:
+        raise Exception("There was a problem parsing the configuration.")
 
 
 def parse_config(file_path):
