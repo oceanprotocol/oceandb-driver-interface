@@ -10,9 +10,9 @@ script: tox
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: $USER_NAME
+  user: leucothia
   password:
-    secure: $SECURE
+    secure: MDUczIclbl7HyiT9gw+laY02BA8q+taRoyAz4jf6QYyMXu5cTUEuq92Y8d4wfPFU8wuh/Z/fYl2debmsSk+Ln98cUWP0TrNm0E2B0jQLmUNd/GCc9uXjNogiR/i6EoFHmfQnPkMWlg5z7GGghgQ0o6hbi/i7GJ40iJjOVlil0pTDhlxHFU2Wa8JD8lz9PZc8/Vn3Jz4FuofVuBbM6FVM1byLfWthM5/qvfsUM+zzQFCWMuc40US6NXnO8TGIXCfNpvM01r2clp8mP4zZw7MMqb85zSLo5ltG+7G8mYf8pWvxldLQO29mnH4Qrei2JQm7oZ2F7v9usxFX+4s9lAcp6vg1oRWuv1NKEeFpeeISrP4Da3IOcPhVh2tC/g+XLGbSKWwuJU4S5HOkoi8FHvCPobtDzoAbRnjnE2O3aatEOckbBiM4coeoI5ORwMwBX6nmAbQJ17eD66W+Gbepbp98lIiv/3um+RZrX3dRhzfkk04TTmhNWJCqbccOHkyASVMO0bMhDT3n5ZYjfOxkINWCr22xw0wLrV/YbiX88iKIZhyqaET1ZB9sEfhyb34lFO5aSFfQscY0XOrgC2sAR4MxiaCzkXjEqdgHaX5YmKVk0wq58ECJBEMPJ7lLP00cpSI/0B+ImqcoutevU1qcqrez+DggpDIndhetbFPfAeYpeTQ=
   on:
     tags: true
     branch: master

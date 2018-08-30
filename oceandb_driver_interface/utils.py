@@ -9,18 +9,6 @@ from oceandb_driver_interface.constants import CONFIG_OPTION
 from oceandb_driver_interface.exceptions import ConfigError
 
 
-def parse_args():
-    """Parse command line arguments given to the agent"""
-    parser = argparse.ArgumentParser(description="OceanDB Plugin System")
-    parser.add_argument('--config', metavar='path', required=False,
-                        help='path to the oceandb_plugin_sysyem.ini file')
-    try:
-        args = parser.parse_args()
-        return args
-    except Exception:
-        raise Exception("There was a problem parsing the configuration.")
-
-
 def parse_config(file_path):
     """Loads the configuration file given as parameter"""
     config_parser = configparser.ConfigParser()
@@ -39,24 +27,23 @@ def parse_config(file_path):
     return plugin_config
 
 
-def start_plugin(file_path):
+def start_plugin(file_path=None):
     """This function initialize the Ocean plugin"""
-    try:
-        args = parse_args()
-        if (args is None or args.config is None) and not file_path:
-            raise Exception('Configuration file is required to load the BigchainDB plugin')
-        if not file_path:
-            file_path = args.config
+    if os.getenv('CONFIG_PATH'):
+        file_path = os.getenv('CONFIG_PATH')
+    else:
+        file_path = file_path
+    if file_path is not None:
         config = parse_config(file_path)
-    except Exception:
-        raise ConfigError("You should provide a valid config.")
-    plugin_instance = load_plugin(config)
-    return plugin_instance(config)
+        plugin_instance = load_plugin(config)
+    else:
+        plugin_instance = load_plugin()
+    return plugin_instance
 
 
-def load_plugin(config):
-    module = config['module']
+def load_plugin(config=None):
     try:
+        module = get_value('module', 'MODULE', 'bigchaindb')
         if 'module.path' in config:
             module_path = config['module.path']
         elif os.getenv('VIRTUAL_ENV') is not None:
@@ -77,6 +64,15 @@ def load_plugin(config):
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         return mod.Plugin
+
+
+def get_value(self, value, env_var, default):
+    if os.getenv(env_var) is not None:
+        return os.getenv(env_var)
+    elif self.config is not None and value in self.config:
+        return self.config[value]
+    else:
+        return default
 
 
 def print_help():
