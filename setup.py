@@ -5,10 +5,10 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
+with open('CHANGELOG.md') as history_file:
     history = history_file.read()
 
 requirements = []
@@ -42,6 +42,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/oceanprotocol/oceandb-driver-interface',
-    version='0.1.3',
+    version='0.1.5',
     zip_safe=False,
 )
