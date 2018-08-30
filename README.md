@@ -15,6 +15,7 @@
 
   - [Features](#features)
   - [Quick-start](#quick-start)
+  - [Environment variables](#environment-variables)
   - [Plugins availables](#plugins-availables)
   - [How to develop a plugin](#how-to-develop-a-plugin)
   - [Code style](#code-style)
