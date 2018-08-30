@@ -1,5 +1,4 @@
 import configparser
-import argparse
 import sys
 import os
 import site
@@ -38,7 +37,7 @@ def start_plugin(file_path=None):
         plugin_instance = load_plugin(config)
     else:
         plugin_instance = load_plugin()
-    return plugin_instance
+    return plugin_instance()
 
 
 def load_plugin(config=None):
