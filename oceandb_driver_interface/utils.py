@@ -43,7 +43,7 @@ def start_plugin(file_path=None):
 
 def load_plugin(config=None):
     try:
-        module = get_value('module', 'MODULE', 'bigchaindb')
+        module = get_value('module', 'MODULE', 'bigchaindb', config)
         if 'module.path' in config:
             module_path = config['module.path']
         elif os.getenv('VIRTUAL_ENV') is not None:
@@ -66,11 +66,11 @@ def load_plugin(config=None):
         return mod.Plugin
 
 
-def get_value(self, value, env_var, default):
+def get_value(value, env_var, default, config=None):
     if os.getenv(env_var) is not None:
         return os.getenv(env_var)
-    elif self.config is not None and value in self.config:
-        return self.config[value]
+    elif config is not None and value in config:
+        return config[value]
     else:
         return default
 
