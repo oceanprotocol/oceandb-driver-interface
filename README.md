@@ -15,6 +15,7 @@
 
   - [Features](#features)
   - [Quick-start](#quick-start)
+  - [Environment variables](#environment-variables)
   - [Plugins availables](#plugins-availables)
   - [How to develop a plugin](#how-to-develop-a-plugin)
   - [Code style](#code-style)
@@ -69,6 +70,13 @@ You have to provide a configuration with the following information:
     db.collection=col       # Mongodb collection name
 ```
 
+## Environment variables
+
+When you want to instantiate an Oceandb plugin you can provide the next environment variables:
+
+
+- **$CONFIG_PATH** -> If you provide the config path Oceandb is going to run using this config values.
+- **$MODULE** -> If you provide the module, you are going to select one of the modules. 
 
 ## Plugins availables
 
