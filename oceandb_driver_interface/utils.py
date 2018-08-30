@@ -72,8 +72,3 @@ def get_value(value, env_var, default, config=None):
         return config[value]
     else:
         return default
-
-
-def print_help():
-    """Print the default help in stdout"""
-    pass
