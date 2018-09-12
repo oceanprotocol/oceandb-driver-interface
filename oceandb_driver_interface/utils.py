@@ -36,7 +36,7 @@ def start_plugin(file_path=None):
         config = parse_config(file_path)
         plugin_instance = load_plugin(config)
     else:
-        plugin_instance = load_plugin()
+        plugin_instance = load_plugin
     return plugin_instance
 
 
@@ -57,12 +57,12 @@ def load_plugin(config=None):
         from importlib.machinery import SourceFileLoader
 
         mod = SourceFileLoader("plugin.py", module_path).load_module()
-        return mod.Plugin
+        return mod.Plugin()
     else:
         spec = importlib.util.spec_from_file_location("plugin.py", module_path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        return mod.Plugin
+        return mod.Plugin()
 
 
 def get_value(value, env_var, default, config=None):
