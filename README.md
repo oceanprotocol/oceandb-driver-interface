@@ -56,6 +56,7 @@ You have to provide a configuration with the following information:
     module.path=            # You can specify the location of your custom plugin.
     db.hostname=localhost   # Address of your persistence.
     db.port=9985            # Port of yout persistence database.
+    ssl=true                # In order to use HTTPS, set ssl to true else set it to false.
 
     # If you choose bigchaindb you have to provide this:
     secret=                 # A secret that serves as a seed.
@@ -68,6 +69,11 @@ You have to provide a configuration with the following information:
     db.password=test        # If you are using authentication, mongodb password.
     db.name=test            # Mongodb database name
     db.collection=col       # Mongodb collection name
+
+    # If you choose elastic-search you have to provide this:
+    db.username=elastic     # If you are using authentication, elasticsearch username.
+    db.password=changeme    # If you are using authentication, elasticsearch password.
+    db.index=oceandb        # Elasticsearch index name
 ```
 
 ## Environment variables
