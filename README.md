@@ -56,7 +56,7 @@ You have to provide a configuration with the following information:
     module.path=            # You can specify the location of your custom plugin.
     db.hostname=localhost   # Address of your persistence.
     db.port=9985            # Port of yout persistence database.
-    ssl=true                # In order to use HTTPS, set ssl to true else set it to false.
+    db.ssl=true             # In order to use HTTPS, set ssl to true else set it to false.
 
     # If you choose bigchaindb you have to provide this:
     secret=                 # A secret that serves as a seed.
