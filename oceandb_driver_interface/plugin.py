@@ -72,10 +72,19 @@ class AbstractPlugin(ABC):
         """
 
     @abstractmethod
-    def query(self, query_string):
+    def query(self, query_model):
         """Query the elements saved in OceanDB
         Args:
-            query_string: Query to OceanDB in a string format.
+            query_model(QueryModel): model of the search
+        Returns:
+             dict: List of registries
+        """
+
+    @abstractmethod
+    def text_query(self, full_text_model):
+        """Query the elements saved in OceanDB
+        Args:
+            full_text_model(FullTextModel): model of the search
         Returns:
              dict: List of registries
         """
