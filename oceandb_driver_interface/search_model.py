@@ -3,7 +3,7 @@ from collections import namedtuple
 sort = namedtuple('key', 'direction')
 
 
-class QueryModel(object):
+class QueryMnodel(object):
     def __init__(self, query=None, sorting: [list[sort]] = None, offset=100, page=0):
         self.query = query
         self.sort = sorting
