@@ -1,18 +1,18 @@
-from collections import namedtuple
+from typing import Tuple, List
 
-sort = namedtuple('key', 'direction')
+sort = Tuple[str, str]
 
 
-class QueryMnodel(object):
-    def __init__(self, query=None, sorting: [list[sort]] = None, offset=100, page=0):
+class QueryModel(object):
+    def __init__(self, query=None, sorting: List[sort] = None, offset=100, page=0):
         self.query = query
         self.sort = sorting
         self.offset = offset
         self.page = page
 
 
-class FullTextModel(object):
-    def __init__(self, text=None, sorting: [list[sort]] = None, offset=100, page=0):
+class FullTextModel():
+    def __init__(self, text=None, sorting: List[sort] = None, offset=100, page=0):
         self.text = text
         self.sort = sorting
         self.offset = offset
