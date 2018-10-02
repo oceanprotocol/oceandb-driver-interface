@@ -6,7 +6,7 @@ class QueryModel(object):
         self.page = page
 
 
-class FullTextModel():
+class FullTextModel(object):
     def __init__(self, text=None, sort: dict = None, offset=100, page=0):
         self.text = text
         self.sort = sort
