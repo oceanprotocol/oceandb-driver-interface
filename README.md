@@ -58,11 +58,11 @@ You have to provide a configuration with the following information:
     db.port=9985            # Port of yout persistence database.
 
     # In order to use SSL, configure below options.
-    db.ssl=True             # If True, connections will be made using HTTPS, else using HTTP
-    db.verify_certs=False    # If True, CA certificate will be verified
-    db.ca_cert_path=          # If verifyCerts is True, then path to the CA cert should be provided here
-    db.client_key=           # If db server needs client verification, then provide path to your client key
-    db.client_cert_path=      # If db server needs client verification, then provide path to your client certificate
+    db.ssl=true             # If *true*, connections will be made using HTTPS, else using HTTP
+    db.verify_certs=false   # If *true*, CA certificate will be verified
+    db.ca_cert_path=        # If verifyCerts is *true*, then path to the CA cert should be provided here
+    db.client_key=          # If db server needs client verification, then provide path to your client key
+    db.client_cert_path=    # If db server needs client verification, then provide path to your client cert
 
     # If you choose bigchaindb you have to provide this:
     secret=                 # A secret that serves as a seed.
