@@ -1,9 +1,13 @@
+#  Copyright 2018 Ocean Protocol Foundation
+#  SPDX-License-Identifier: Apache-2.0
+
 import configparser
-import sys
+import importlib.machinery
+import importlib.util
 import os
 import site
-import importlib.util
-import importlib.machinery
+import sys
+
 from oceandb_driver_interface.constants import CONFIG_OPTION
 from oceandb_driver_interface.exceptions import ConfigError
 

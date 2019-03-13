@@ -1,6 +1,9 @@
 """Custom exceptions for OceanDB"""
 
 
+#  Copyright 2018 Ocean Protocol Foundation
+#  SPDX-License-Identifier: Apache-2.0
+
 class OceanDbError(Exception):
     """Base class for all OceanDB errors."""
 

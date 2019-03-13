@@ -1,3 +1,7 @@
+#  Copyright 2018 Ocean Protocol Foundation
+#  SPDX-License-Identifier: Apache-2.0
+
+
 class QueryModel(object):
     def __init__(self, query=None, sort: dict = None, offset=100, page=0):
         self.query = query
