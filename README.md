@@ -57,6 +57,13 @@ You have to provide a configuration with the following information:
     db.hostname=localhost   # Address of your persistence.
     db.port=9985            # Port of yout persistence database.
 
+    # In order to use SSL, configure below options.
+    db.ssl=true             # If *true*, connections will be made using HTTPS, else using HTTP
+    db.verify_certs=false   # If *true*, CA certificate will be verified
+    db.ca_cert_path=        # If verifyCerts is *true*, then path to the CA cert should be provided here
+    db.client_key=          # If db server needs client verification, then provide path to your client key
+    db.client_cert_path=    # If db server needs client verification, then provide path to your client cert
+
     # If you choose bigchaindb you have to provide this:
     secret=                 # A secret that serves as a seed.
     db.namespace=namespace  # Namespace that you are going to use in bigchaindb
@@ -68,6 +75,11 @@ You have to provide a configuration with the following information:
     db.password=test        # If you are using authentication, mongodb password.
     db.name=test            # Mongodb database name
     db.collection=col       # Mongodb collection name
+
+    # If you choose elastic-search you have to provide this:
+    db.username=elastic     # If you are using authentication, elasticsearch username.
+    db.password=changeme    # If you are using authentication, elasticsearch password.
+    db.index=oceandb        # Elasticsearch index name
 ```
 
 ## Environment variables

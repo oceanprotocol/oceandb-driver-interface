@@ -3,7 +3,10 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages
+#  Copyright 2018 Ocean Protocol Foundation
+#  SPDX-License-Identifier: Apache-2.0
+
+from setuptools import find_packages, setup
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -42,6 +45,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/oceanprotocol/oceandb-driver-interface',
-    version='0.1.8',
+    version='0.1.11',
     zip_safe=False,
 )

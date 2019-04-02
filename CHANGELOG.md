@@ -1,7 +1,14 @@
 History
 =======
 
-0.1.0 (2018-05-31)
-------------------
+0.1.11 (October 4th, 2018)
+--------------------------
+* Refactored config to use convention
 
-* First release on PyPI.
+0.1.10 (October 2nd, 2018)
+-------------------------
+* Add search_model
+
+0.1.2 (August 14th, 2018)
+------------------
+* Plankton release
