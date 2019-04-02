@@ -1,9 +1,13 @@
+#  Copyright 2018 Ocean Protocol Foundation
+#  SPDX-License-Identifier: Apache-2.0
+
 import configparser
-import sys
+import importlib.machinery
+import importlib.util
 import os
 import site
-import importlib.util
-import importlib.machinery
+import sys
+
 from oceandb_driver_interface.constants import CONFIG_OPTION
 from oceandb_driver_interface.exceptions import ConfigError
 
@@ -36,7 +40,7 @@ def start_plugin(file_path=None):
         config = parse_config(file_path)
         plugin_instance = load_plugin(config)
     else:
-        plugin_instance = load_plugin()
+        plugin_instance = load_plugin
     return plugin_instance
 
 
@@ -57,12 +61,12 @@ def load_plugin(config=None):
         from importlib.machinery import SourceFileLoader
 
         mod = SourceFileLoader("plugin.py", module_path).load_module()
-        return mod.Plugin
+        return mod.Plugin(config)
     else:
         spec = importlib.util.spec_from_file_location("plugin.py", module_path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        return mod.Plugin
+        return mod.Plugin(config)
 
 
 def get_value(value, env_var, default, config=None):

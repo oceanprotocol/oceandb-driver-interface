@@ -1,3 +1,6 @@
+#  Copyright 2018 Ocean Protocol Foundation
+#  SPDX-License-Identifier: Apache-2.0
+
 from oceandb_driver_interface.utils import start_plugin
 
 
@@ -15,5 +18,6 @@ class OceanDb:
     Attributes:
         plugin (Plugin): Bound persistence layer plugin.
     """
+
     def __init__(self, file_path=None):
         self.plugin = start_plugin(file_path)
